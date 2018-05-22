@@ -1,0 +1,128 @@
+appappas sdwd    sdwdwdss/* pages/index/storesmap/storesmap.wxss */
+
+page {
+  background-color: #f1f1f1;
+}
+
+.map-search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 260rpx;
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+
+.search-city {
+  width: 90%;
+  height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  font-size: 30rpx;
+  margin: 40rpx 0;
+}
+
+.search-city input {
+  width: 430rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border: 1rpx solid #999;
+  padding-left: 20rpx;
+}
+
+.search-city button {
+  width: 200rpx;
+  height: 62rpx;
+  line-height: 62rpx;
+  font-size: 30rpx;
+  background-color: #f6827a;
+  margin-top: 1rpx;
+  color: #fff;
+  margin-left: 30rpx;
+  text-align: center;
+}
+
+.search-city-hot {
+  justify-content: center;
+  width: 90%;
+  height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.search-city-hot label {
+  width: 190rpx;
+  font-size: 30rpx;
+  line-height: 55rpx;
+}
+
+.search-city-hot picker {
+  width: 290rpx;
+  font-size: 30rpx;
+  padding-left: 20rpx;
+  border: 1rpx solid #999;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.icon-dnarrow {
+  border-right: 12rpx solid transparent;
+  border-left: 12rpx solid transparent;
+  border-top: 12rpx solid #666;
+  display: block;
+  position: absolute;
+  z-index: 99;
+}
+
+.icon-dnarrow.dn2 {
+  top: 25rpx;
+  right: 22rpx;
+}
+
+.icon-dnarrow.dn1 {
+  top: 25rpx;
+  right: 302rpx;
+}
+
+.map-list {
+  width: 100%;
+  background-color: #fff;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  color: #666;
+  flex-direction: column;
+  line-height: 50rpx;
+  padding-bottom: 30rpx;
+}
+
+.map-list label {
+  float: left;
+  padding-left: 10rpx;
+  padding-top: 30rpx;
+}
+
+.map-list text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  padding-top: 30rpx;
+}
+
+.map-list text:first-child {
+  padding: 40rpx 20rpx 10rpx;
+}
+
+.map-list text:last-child {
+  /*width: 120rpx;*/
+}
+
+.store-meet {
+  display: block;
+  height: 30rpx;
+  line-height: 30rpx;
+  background-color: #f6827a;
+  color: #fff;
+  margin-top: 20rpx;
+}

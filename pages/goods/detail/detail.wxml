@@ -1,0 +1,297 @@
+<!--pages/detail/detail.wxml-->
+<!--商品详情页-->
+<view class="body">
+  <view class="header">
+    <swiper class="swiperimg" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{productdata}}" wx:key="*this">
+        <block wx:for="{{item.GalleryList}}" wx:key="*this">
+          <swiper-item>
+            <navigator url="" open-type="navigate" hover-class="other-navigator-hover">
+              <!-- 测试
+              <image src="http://192.168.88.70:81/{{item.img_url}}" class="swiperimg" bindtap='imgpriview' data-url="{{item.img_url}}"></image>
+              -->
+              <image src="http://gmond.com/{{item.img_url}}" class="swiperimg" bindtap='imgpriview' data-url="{{item.img_url}}"></image>
+            </navigator>
+          </swiper-item>
+        </block>
+      </block>
+    </swiper>
+  </view>
+  <view class='pro-box' wx:for="{{productdata}}">
+    <view class="product-title">{{item.goods_name}}</view>
+    <view class="product-highlights">{{item.market_price==item.shop_price?'':'￥'}}{{item.market_price==item.shop_price?'':item.market_price}}</view>
+    <view class="product-price">￥{{item.shop_price}}</view>
+    <view class="flex-row product-way">
+      <!--
+      <view>销量：{{item.sales_count}}件</view>
+      <view>{{item.ship_address?item.ship_address:' '}}</view>
+      --> 
+    </view>
+    <view class="favorite" bindtap='toFavorite'>
+      <image mode='widthFix' src='{{isChecked?is_checked:normal}}'></image>
+      <text>收藏</text>
+    </view>
+  </view>
+  <view class="flex-row product-service">
+    <!--
+    <view>
+      <image src="/images/service.png" class="product-service-ico" mode="widthFix"></image>
+      <text class="product-service-txt">货到付款</text>
+    </view>
+    -->
+    <view class="product-service-row">
+      <image src="/images/service.png" class="product-service-ico" mode="widthFix"></image>
+      <text class="product-service-txt">正品保障</text>
+    </view>
+    <!-- 
+      <view class="product-service-row">
+      <image src="/images/service.png" class="product-service-ico" mode="widthFix"></image>
+      <text class="product-service-txt">7天退换</text>
+    </view>
+    -->
+    <view class="product-service-row">
+      <image src="/images/service.png" class="product-service-ico" mode="widthFix"></image>
+      <text class="product-service-txt">专柜联保</text>
+    </view>
+    <view class="product-service-row">
+      <image src="/images/service.png" class="product-service-ico" mode="widthFix"></image>
+      <text class="product-service-txt">提供发票</text>
+    </view>
+  </view>
+  <view class="blank10"></view>
+  <view class="flex-row model-select" bindtap="ShowModelPanel">
+    <view>{{productdata.select_info? '已选 '+productdata.current_num+'件;'+productdata.select_info:'请选择颜色、规格等'}}</view>
+    <view class="navigator-arrow"></view>
+  </view>
+  <view class="blank10"></view>
+
+  <scroll-view>
+    <view class="flex-row topnav">
+      <view class="topnav-header">
+        <view class="topnav-header-list {{currentNavtab==idx ? 'active' : ''}}" wx:for="{{navTab}}" wx:for-index="idx" wx:for-item="itemName" data-idx="{{idx}}" data-current="{{idx}}" bindtap="bindswitchTap" wx:key="*id">{{itemName}}</view>
+      </view>
+    </view>
+    <view class="blank10"></view>
+
+    <!--商品图文详情-->
+    <view class="table" hidden="{{currentNavtab==0 ? '' : true}}">
+      <view class="flex-column product-introduce">
+        <view class="flex-column product-detail">
+        </view>
+        <!--商品属性表-->
+        <view class='detail-para'> 
+          <block wx:for='{{detailData}}' wx:for-item="shop" wx:key='*this'>
+            <!--外层商品属性名称-->
+            <block wx:for="{{attr_good_Data}}" wx:for-item='attr'>
+              <view class='para-row' data-post-id='postId'>
+                <label>{{attr.attr_name}}：</label>
+                <!--内层商品属性值-->
+                <block wx:for="{{shop.GoodsAttrList}}" wx:for-item="goods" wx:if='{{goods.attr_id==attr.attr_id}}'>
+                  <text>{{goods.attr_value}}</text>
+                </block>
+              </view>
+            </block>
+          </block>
+        </view>
+        <block wx:for="{{goods_desc_list}}">
+          <image mode="widthFix" bindtap='imgsBig' class='list-img' src='http://gmond.com/{{item}}' data-url='{{item}}'></image>
+          <!--
+          <image mode="widthFix" bindtap='imgsBig' class='list-img' src=' http://192.168.88.70:81/{{item}}' data-url='{{item}}'></image>
+          -->
+        </block>
+      </view>
+    </view>
+    <!--商品评论信息-->
+    <view class="table" hidden="{{currentNavtab==1 ? '' : true}}">
+      <view class="flex-column product-introduce">
+        <view class="product-evaluate-header">
+          <view class='header-title'>用户评价（
+            <text>{{evalNum}}</text>）</view>
+          <view class='header-proba'>
+            <text>{{evalProba}}</text>好评</view>
+        </view>
+        <block wx:for='{{evaluateData}}' wx:key='*key'>
+          <view class="flex-row product-evaluate" data-post-id='postId'>
+            <view class="product-evaluate-name">{{item.evalName}}</view>
+            <view class="product-evaluate-value">{{item.evalValue}}</view>
+            <view class="product-evaluate-date">{{item.evalDate}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </scroll-view>
+
+</view>
+<view class="clear"></view>
+
+<!--底部菜单-->
+<view class="flex-row bottom">
+  <view class="flex-column btm-menu">
+    <button open-type="contact" session-from="weapp">
+      <image src="/images/kf.png" class="btm-menu-ico" mode="widthFix"></image>
+      <view class="btm-menu-txt txt-customer">客服 </view>
+    </button>
+  </view>
+  <view class="flex-column btm-menu" bindtap="OnShop">
+    <image src="/images/shop.png" class="btm-menu-ico" mode="widthFix"></image>
+    <view class="btm-menu-txt">店铺</view>
+  </view>
+  <view class="flex-column btm-menu" bindtap="OnCart">
+    <image src="/images/cart.png" class="btm-menu-ico" mode="widthFix"></image>
+    <view class="btm-menu-txt">购物车</view>
+  </view>
+  <view class="flex-row add-cart" bindtap="GoodsBuyCart">加入购物车</view>
+  <view class="flex-row quick-buy" bindtap="OnBuy">立即购买</view>
+</view>
+
+<!--加入购物车-->
+<view class="model-mask" hidden="{{HiddenModel?true:false}}" bindtap="ColseModel"></view>
+<view class="flex-column model-bottom" hidden="{{HiddenModel?true:false}}">
+  <view class="flex-row model-product">
+    <view class='img-box'>
+      <block wx:for="{{productdata}}" wx:key="*this">
+        <!--测试
+        <image src="http://192.168.88.70:81/{{item.goods_thumb}}" class="model-product-img"></image>
+        -->
+        <image src="http://gmond.com/{{item.goods_thumb}}" class="model-product-img"></image>
+
+      </block>
+    </view>
+    <view wx:for="{{productdata}}" wx:for-item="shop">
+      <view class="flex-column model-product-txt">
+        <view class="model-product-price">￥{{goods_attr_price}}</view>
+
+        <view class="model-product-select">
+          <view> 库存数量：{{product_number}}</view>
+          <!--外层商品属性名称-->
+          <block wx:for="{{attrData}}" wx:for-item='attr'>
+            <view class='select-price' data-id="{{attr.attr_id}}">
+              <label>{{attr.attr_name}}：</label>
+              <!--内层商品属性值-->
+          <view class='sttr-box'>
+              <block wx:for="{{shop.GoodsAttrList}}" wx:for-item="goods" wx:if='{{goods.attr_id==attr.attr_id}}'>
+                <view class='checkbox-warp'>
+                  <checkbox-group>
+                    <label class="checkbox">
+                      <checkbox bindtap='checkboxChange' data-index="{{index}}" checked="{{goods.is_select}}" data-attr_price="{{goods.attr_price}}" data-id="{{goods.goods_attr_id}}" data-attr_id="{{goods.attr_id}}" />
+                    </label>
+                  </checkbox-group>
+                  <text>{{goods.attr_value}}</text>
+                </view>
+              </block>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+    <view class="flex-row model-product-colse" bindtap="ColseModel">
+      <icon type="cancel" color="#dddddd" />
+    </view>
+  </view>
+
+  <scroll-view class="flex-column model-scroll-body" wx:if="{{productdata.model.length>0}}" scroll-y="{{true}}">
+
+    <block wx:for="{{productdata.model}}" wx:for-item="modelrow" wx:for-index="modelidx" wx:key="*model">
+      <view class="model-scroll-solid" wx:if="{{modelidx>0}}"></view>
+      <view class="model-scroll-content" bindtap="SelectModel">
+        <view class="model-scroll-title">{{modelrow.model_name}}</view>
+        <view class="flex-row model-scroll-content-list">
+          <block wx:for="{{modelrow.model_value}}" wx:for-item="modelitem" wx:for-index="modelitemidx" wx:key="*modelitem">
+            <view class="{{modelrow.is_select==(modelidx+'_'+modelitemidx)?'model-scroll-content-item-active':'model-scroll-content-item'}}" data-modelindex="{{modelidx}}" data-itemindex="{{modelitemidx}}">{{modelitem}}</view>
+          </block>
+        </view>
+      </view>
+    </block>
+
+  </scroll-view>
+
+  <view class="flex-row model-product-num">
+    <view class="model-product-num-txt">数量</view>
+    <block wx:for="{{productdata}}" wx:key="*this">
+      <view class="flex-row model-product-num-panel">
+        <view class="flex-row model-product-num-dec" bindtap="OnMinus">-</view>
+        <view class="flex-row model-product-num-label">{{goods_buynumber}}</view>
+        <view class="flex-row model-product-num-add" bindtap="OnAdd" data-id="{{item.goods_number}}">+</view>
+      </view>
+    </block>
+  </view>
+  <view class="flex-row model-ok" bindtap="OnConfirm">加入购物车</view>
+</view>
+
+
+
+<!--立即购买-->
+<view class="model-mask" hidden="{{BuyNowLoad?true:false}}" bindtap="ColseModel"></view>
+<view class="flex-column model-bottom" hidden="{{BuyNowLoad?true:false}}">
+  <view class="flex-row model-product">
+    <view class='img-box'>
+      <block wx:for="{{productdata}}" wx:key="*this">
+        <!--测试
+        <image mode="widthFix" src="http://192.168.88.70:81/{{item.goods_thumb}}" class="model-product-img"></image>
+        -->
+        <image mode='widthFix' src="http://gmond.com/{{item.goods_thumb}}" class="model-product-img"> </image>
+
+      </block>
+    </view>
+    <view wx:for="{{productdata}}" wx:for-item="shop">
+      <view class="flex-column model-product-txt">
+        <view class="model-product-price">￥{{goods_attr_price}}</view>
+
+        <view class="model-product-select">
+          <view> 库存数量：{{product_number}}</view>
+          <!--外层商品属性名称-->
+          <block wx:for="{{attrData}}" wx:for-item='attr'>
+            <view class='select-price' data-id="{{attr.attr_id}}">
+              <label>{{attr.attr_name}}：</label>
+              <!--内层商品属性值-->
+          <view class='sttr-box'>
+              <block wx:for="{{shop.GoodsAttrList}}" wx:for-item="goods" wx:if='{{goods.attr_id==attr.attr_id}}'>
+                <view class='checkbox-warp'>
+                  <checkbox-group>
+                    <label class="checkbox">
+                      <checkbox bindtap='checkboxChange' data-index="{{index}}" checked="{{goods.is_select}}" data-attr_price="{{goods.attr_price}}" data-id="{{goods.goods_attr_id}}" data-attr_id="{{goods.attr_id}}" />
+                    </label>
+                  </checkbox-group>
+                  <text>{{goods.attr_value}}</text>
+                </view>
+              </block>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+    <view class="flex-row model-product-colse" bindtap="ColseModel">
+      <icon type="cancel" color="#dddddd" />
+    </view>
+  </view>
+
+  <scroll-view class="flex-column model-scroll-body" wx:if="{{productdata.model.length>0}}" scroll-y="{{true}}">
+
+    <block wx:for="{{productdata.model}}" wx:for-item="modelrow" wx:for-index="modelidx" wx:key="*model">
+      <view class="model-scroll-solid" wx:if="{{modelidx>0}}"></view>
+      <view class="model-scroll-content" bindtap="SelectModel">
+        <view class="model-scroll-title">{{modelrow.model_name}}</view>
+        <view class="flex-row model-scroll-content-list">
+          <block wx:for="{{modelrow.model_value}}" wx:for-item="modelitem" wx:for-index="modelitemidx" wx:key="*modelitem">
+            <view class="{{modelrow.is_select==(modelidx+'_'+modelitemidx)?'model-scroll-content-item-active':'model-scroll-content-item'}}" data-modelindex="{{modelidx}}" data-itemindex="{{modelitemidx}}">{{modelitem}}</view>
+          </block>
+        </view>
+      </view>
+    </block>
+
+  </scroll-view>
+
+  <view class="flex-row model-product-num">
+    <view class="model-product-num-txt">数量</view>
+    <block wx:for="{{productdata}}" wx:key="*this">
+      <view class="flex-row model-product-num-panel">
+        <view class="flex-row model-product-num-dec" bindtap="OnMinus">-</view>
+        <view class="flex-row model-product-num-label">{{goods_buynumber}}</view>
+        <view class="flex-row model-product-num-add" bindtap="OnAdd" data-id="{{item.goods_number}}">+</view>
+      </view>
+    </block>
+  </view>
+  <view class="flex-row model-ok" bindtap="OnBuyNow">立即购买</view>
+</view>

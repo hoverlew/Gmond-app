@@ -1,0 +1,74 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/categorys/cate/cate",
+    "pages/categorys/searchResult/searchResult",
+    "pages/goods/list/list",
+    "pages/goods/detail/detail",
+    "pages/goods/validate/validate",
+    "pages/goods/validate/valResult/valResult",
+    "pages/goods/coupon/coupon",
+    "pages/goods/query/query",
+    "pages/goods/vip/vip",
+    "pages/goods/vip/vipResult/vipResult",
+    "pages/goods/filter/filter",
+    "pages/steps/cart/cart",
+    "pages/steps/pay/pay",
+    "pages/steps/edit/edit",
+    "pages/steps/couponlist/couponlist",
+    "pages/user/mycenter/mycenter",
+    "pages/user/orderlist/orderlist",
+    "pages/user/favorite/favorite",
+    "pages/user/orderdetail/orderdetail",
+    "pages/help/helplist/helplist",
+    "pages/help/storesmap/storesmap",
+    "pages/help/about/about",
+    "pages/test/test",
+    "pages/steps/refund/refund"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#454545",
+    "navigationBarTitleText": "吉盟珠宝官方商城",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#eeeeee",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#f6827a",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/tb_home.png",
+        "selectedIconPath": "images/tb_home_o.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/categorys/cate/cate",
+        "iconPath": "images/tb_part.png",
+        "selectedIconPath": "images/tb_part_o.png",
+        "text": "全部分类"
+      },
+      {
+        "pagePath": "pages/steps/cart/cart",
+        "iconPath": "images/tb_shopping.png",
+        "selectedIconPath": "images/tb_shopping_o.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/user/mycenter/mycenter",
+        "iconPath": "images/tb_main.png",
+        "selectedIconPath": "images/tb_main_o.png",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

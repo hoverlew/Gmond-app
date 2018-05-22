@@ -1,0 +1,27 @@
+<!--
+<view class="index">
+  <view class="body">
+    <view class="widgets">
+      <block wx:for-items="{{listData}}">
+        <view class="widgets-item">
+          <view id="{{item.article_id}}" class="widgets-info {{item.open ? 'widgets-info-show' : ''}}" bindtap="widgetsToggle">
+            <text class="widgets-info-name">{{item.title}}</text>
+            <image class="widgets-info-img" src="../../../images/rightarrow.png" mode="aspectFill" />
+          </view>
+          <view class="widgets-list {{item.open ? 'widgets-list-show' : ''}}">
+            <view class="widget" bindtap="callPhone" data-phone="{{item.phone[index]}}" hover-start-time="10" hover-stay-time="100">
+              <text class="widget-name">{{item.content}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
+-->
+<view class='help'>
+  <view class='btm-tel'>
+        <text bindtap='CallPhone'>400-8866-355</text>
+        <text bindtap='CallPhone'>立即拨打</text>
+      </view>
+    </view>

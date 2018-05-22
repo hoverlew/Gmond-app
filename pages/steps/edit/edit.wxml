@@ -1,0 +1,57 @@
+<view class="cartList">
+  <view class="goods" wx:for="{{cartlist}}" wx:if="{{item.rec_id==rec_id}}">
+    <view class='goods-up'>
+      <view>
+        <!--测试
+        <image src="http://192.168.88.70:81/{{item.goods_thumb}}" class="good-img" />
+          -->
+        <image wx:if='{{item.goods_thumb.length!=0}}' src="http://gmond.com/{{item.goods_thumb}}" class="good-img" />
+        <image wx:else src="/images/no_picture.gif}" class="good-img" />
+      </view>
+      <!--右侧说明部分-->
+      <view class="good-cont">
+        <!--文字说明-->
+        <view class="goods-navigator">
+          <text class="good-name">{{item.goods_name}}</text>
+        </view>
+        <!--价钱和购物加减的父盒子-->
+        <view class="good-price">
+          <text class="price">￥{{goods_attr_price}}</text>
+          <view class='stock'>
+            <view class="pro-right-num">
+              <view class="pro-right-dec" data-idx="{{idx}}" bindtap="OnMinus">-</view>
+              <view class="pro-right-label">{{goods_buynumber}}</view>
+              <view class="pro-right-add" data-idx="{{idx}}" bindtap="OnAdd">+</view>
+            </view>
+            <view class='pro-right-stock'>
+              <block wx:for="{{productdata}}" wx:for-item="shop">
+                <text>库存<text>{{product_number==''&& product_number==null?shop.goods_number:product_number}}</text>件</text>
+              </block>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!--options-->
+    <view class="commodity_attr_list" wx:for="{{productdata}}" wx:for-item="shop">
+
+      <!--每组属性-->
+      <view class="attr_box" wx:for="{{attrData}}" wx:for-item="attr" wx:for-index="attrIndex">
+        <!--属性名-->
+        <view class="attr_name">{{attr.attr_name}}</view>
+        <!--属性值-->
+        <view class="attr_value_box">
+          <!--每个属性值-->
+          <block wx:for="{{shop.GoodsAttrList}}" wx:for-item="goods" wx:if='{{goods.attr_id==attr.attr_id}}'>
+            <view class="attr_value {{goods.is_select==true?'attr_value_active':'attr_value'}}" data-index="{{index}}" data-id="{{goods.goods_attr_id}}" data-attr_id="{{goods.attr_id}}" data-attr_price="{{goods.attr_price}}" bindtap="selectAttrValue">{{goods.attr_value}}</view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--footer-->
+  <view class="total">
+    <button class="total_js" size="mini" bindtap='submit' disabled='{{isload}}'>确认</button>
+  </view>
+</view>

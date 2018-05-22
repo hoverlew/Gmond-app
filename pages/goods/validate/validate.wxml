@@ -1,0 +1,10 @@
+<!--pages/validate/validate.wxml-->
+<view class='body'>
+  <view class='search-box'>
+    <icon class='searchicon' size='20' type='search'></icon>
+    <input class='' style='color:#050505' name='barcodeid' placeholder='请输入条形码' bindinput='barcodeInput' />
+  </view>
+  <view class='enter-box'>
+    <button class='btn' type='defult' bindtap='toSearch'>查询核验</button>
+  </view>
+</view>

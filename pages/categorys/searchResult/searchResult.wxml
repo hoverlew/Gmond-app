@@ -1,0 +1,22 @@
+<!--pages/categorys/searchResult/searchResult.wxml-->
+<view class='swiper-search'>
+  <view class='search'>
+    <view class='df search-arr'>
+      <input class='' bindinput='searchName' placeholder='请输入关键字' value='{{searchValue}}'/> 
+      <button class='' bindtap='searchLoad'>搜索</button>
+    </view>
+  </view>
+</view>
+<view class='search-history'>
+  <view class='history-box'>
+    <view class='history-up'>
+      <text class='history-title'>历史搜索</text>
+      <text class='history-delete' bindtap='clearSearch'>清除</text>
+    </view>
+    <view class='history-dn'>
+      <block wx:for='{{SearchHistory}}'>
+        <text bindtap='textLoad' data-text='{{item}}'>{{item}}</text>
+      </block>
+    </view>
+  </view>
+</view>

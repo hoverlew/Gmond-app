@@ -1,0 +1,55 @@
+<!--pages/coupon/coupon.wxml-->
+<!--个人优惠卷列表页-->
+<view class='body'>
+  <view class='coupon-title'>
+    <text>领券更优惠</text>
+  </view>
+  <view wx:if="{{reseiveData!=null}}">
+    <!--判断用户是否登录-->
+    <view class='coupon-container' wx:if="{{userInfo.nickName != null}}">
+      <!--已经登录-->
+      <block wx:for='{{reseiveData}}' wx:key='*this' wx:for-item='data1'>
+        <view class='coupon-list' bindtap='couponLoad' data-couponid="{{data1.act_id}}" data-post-id='postId'>
+          <view class='lf-coupon'>
+            <image src='/images/coupon3.png'>
+              <text class='cp-price'><text>￥</text>{{data1.act_type_ext}}</text>
+              <text class='cp-require'>
+              <text>满{{data1.min_amount}}元</text>
+              <text>使<text>用</text></text>
+              </text>
+            </image>
+          </view>
+          <view class='rt-coupon'>
+            <text>{{data1.act_name}}</text>
+            <text class='rt-coupon-time'>有效期：{{data1.start_time}} 至 <text>{{data1.end_time}}</text></text>
+          </view>
+          <block wx:for='{{myreseiveData}}' wx:key='*this' wx:for-item='data2'>
+            <image mode='widthFix' hidden='{{data1.act_id==data2.act_id?false:true}}' class='ps-coupon' src='/images/ps.png'></image>
+          </block>
+        </view>
+      </block>
+    </view>
+    <view class='coupon-container' wx:else bindtap='couponLoad'>
+      <block wx:for='{{reseiveData}}' wx:key='*this'>
+        <view class='coupon-list' bindtap='couponLoad' data-post-id='postId'>
+          <view class='lf-coupon'>
+            <image src='/images/coupon_01.png'>
+              <text class='cp-price'><text>￥</text>{{data1.act_type_ext}}</text>
+              <text class='cp-require'>
+              <text>满{{item.min_amount}}元</text>
+              <text>使<text>用</text></text>
+              </text>
+            </image>
+          </view>
+          <view class='rt-coupon'>
+            <text>{{item.act_name}}</text>
+            <text class='rt-coupon-time'>有效期：{{item.start_time}} <text>{{item.end_time}}</text></text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view wx:else class='text-center'>
+    暂无活动优惠卷可以领取!
+  </view>
+</view>

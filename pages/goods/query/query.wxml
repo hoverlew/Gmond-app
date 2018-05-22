@@ -1,0 +1,45 @@
+<!--pages/query/query.wxml-->
+<view class='body'>
+  <image class='query-banner' src='/images/price.jpg'></image>
+  <view class='query-container'>
+    <view class='query-box'>
+
+      <view class='query-list'>
+        <view class='list-title'>黄金</view>
+        <view class='list-detail {{marginData}}'>
+          <text>当日金价</text>
+          <text>{{huangjinPrice}}</text>
+        </view>
+      </view>
+
+      <view class='query-list'>
+        <view class='list-title'>K金</view>
+        <view class='list-detail {{marginData}}'>
+          <text>当日金价</text>
+          <text>{{kjinPrice}}</text>
+        </view>
+      </view>
+
+      <view class='query-list'>
+        <view class='list-title'>铂金</view>
+        <view class='list-detail {{marginData}}'>
+          <text>当日金价</text>
+          <text>{{bojinPrice}}</text>
+        </view>
+      </view>
+
+      <view class='query-list'>
+        <view class='list-title'>钻石</view>
+        <view class='list-detail {{marginData}}'>
+          <text>当日金价</text>
+          <text>{{zuanshiPrice}}</text>
+        </view>
+      </view>
+
+      <view class='query-footer'>
+        <text>更新于{{datetime}}</text>
+        <text>单位：元/克</text>
+      </view>
+    </view>
+  </view>
+</view>

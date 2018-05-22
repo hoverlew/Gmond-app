@@ -1,0 +1,37 @@
+<!--pages/index/storesmap/storesmap.wxml-->
+<view class='body'>
+  <view class='banner'>
+    <image src='/images/md.jpg' style='height:130px; width:100%'></image>
+  </view>
+  <view class='map-search'>
+    <view class='search-city'>
+      <input type='defult' placeholder='请输入城市名称查询' bindinput='addressName' value='{{storesaddress}}'></input>
+      <button bindtap='addressLoad'>搜索</button>
+    </view>
+    <view class='search-city-hot'>
+      <label>热门城市：</label>
+      <picker placeholder='请选择' bindchange="bindPickerChange0" value="{{brandindex}}" range="{{brands}}">
+        <view class="picker">{{brands[brandindex]}}</view>
+      </picker>
+      <icon class='icon-dnarrow dn1'></icon>
+      <picker style='margin-left:20rpx;' placeholder='请选择' bindchange="bindPickerChange1" value="{{index1}}" range="{{objects}}">
+        <view class="picker"> {{objects[index1]}}</view>
+      </picker>
+      <view>{{text}}</view>
+      <icon class='icon-dnarrow dn2'></icon>
+    </view>
+  </view>
+  <block wx:for="{{storeList}}" wx:key="*this">
+    <view class='map-list'>
+      <label>门店名称：</label>
+      <text class='store-name'>{{item.name}}</text>
+      <label>门店地址：</label>
+      <text class='store-address'>{{item.address}}</text>
+      <label>预约电话：</label>
+      <text class='store-tel'>{{item.phone.length<=1?showphone:item.phone}}</text>
+      <!--
+      <text class='store-meet' data-phone='{{item.phone}}' bindtap='loadstores'>进店预约</text>
+      -->
+    </view>
+  </block>
+</view>

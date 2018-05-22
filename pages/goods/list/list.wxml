@@ -1,0 +1,74 @@
+<!--pages/list/list.wxml-->
+<import src="../../categorys/cate/search/search.wxml" />
+<view class="body">
+  <template is='searchbox'></template>
+  <view class='list-nav'>
+    <view class="top-filter">
+      <view class="filter-item" bindtap='bindOrderTap' style='color:{{ orders[0].color }}' data-index='0'>
+        销量
+      </view>
+      <view class="filter-item" bindtap='bindOrderTap' style='color:{{ orders[1].color }}' data-index='1'>
+        价格
+        <view class='nav-icon filter-order {{ orders[1].clzName }}'>
+          <view></view>
+          <view></view>
+        </view>
+      </view>
+      <view class="filter-item" bindtap='bindOrderTap' style='color:{{ orders[2].color }}' data-index='2'>
+        新品
+      </view>
+      <view class="filter-item" bindtap='bindSearch'>筛选</view>
+    </view>
+  </view>
+
+
+  <view class="consultant-container list-container" wx:if="{{is_screen}}">
+    <!--开启筛选-->
+    <view wx:if='{{listshow}}'>
+      <view hover hover-class='consulatnt-item-hover' class='consulatnt-item {{ index == 0 ? "isnew" : "" }} {{ item.hot && item.hot > 0 ? "suggest" : "" }}' wx:for="{{listData}}">
+        <navigator url='/pages/goods/detail/detail?goods_id={{item.goods_id}}' wx:if="{{item.shop_price>=minprice && item.shop_price<=maxprice}}">
+          <view class="info-wrapper list-temp" bindtap='bindItem' data-index='{{ index }}'>
+            <!-- 测试
+            <image wx:if='{{item.goods_img.length!=0}}' class='list-img' mode='aspectFill' src='http://192.168.88.70:81/{{item.goods_img}}' />
+            <image wx:else class='list-img' mode='aspectFill' src='/images/no_picture.gif'></image>
+            -->
+            <image mode='widthFix' wx:if='{{item.goods_img.length!=0}}' class='list-img' src='http://gmond.com/{{item.goods_img}}' />
+            <image mode='widthFix' wx:else class='list-img' src='/images/no_picture.gif'></image>
+
+            <text class='list-txt'>{{item.goods_name}}</text>
+            <label class='list-price'>
+              <label>￥</label>{{item.shop_price==item.market_price?item.shop_price:item.shop_price}}</label>
+          </view>
+        </navigator>
+      </view>
+    </view>
+    <view class='none-order' wx:else>
+      <image src='{{noCartImgSrc}}'></image>
+      <text>{{noCartTxt}}</text>
+    </view>
+  </view>
+  <view class="consultant-container list-container" wx:else>
+    <view wx:if='{{listshow}}'>
+      <view hover hover-class='consulatnt-item-hover' class='consulatnt-item {{ index == 0 ? "isnew" : "" }} {{ item.hot && item.hot > 0 ? "suggest" : "" }}' wx:for="{{listData}}">
+        <navigator url='/pages/goods/detail/detail?goods_id={{item.goods_id}}'>
+          <view class="info-wrapper list-temp" bindtap='bindItem' data-index='{{ index }}'>
+            <!-- 测试
+            <image wx:if='{{item.goods_img.length!=0}}' class='list-img' mode='aspectFill' src='http://192.168.88.70:81/{{item.goods_img}}' />
+            <image wx:else class='list-img' mode='aspectFill' src='/images/no_picture.gif'></image>
+            -->
+            <image wx:if='{{item.goods_img.length!=0}}' mode='widthFix' class='list-img' src='http://gmond.com/{{item.goods_img}}' />
+            <image wx:else class='list-img' mode='widthFix' src='/images/no_picture.gif'></image>
+
+            <text class='list-txt'>{{item.goods_name}}</text>
+            <label class='list-price'>
+              <label>￥</label>{{item.shop_price==item.market_price?item.shop_price:item.shop_price}}</label>
+          </view>
+        </navigator>
+      </view>
+    </view>
+    <view class='none-order' wx:else>
+      <image src='{{noCartImgSrc}}'></image>
+      <text>{{noCartTxt}}</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,17 @@
+<!--pages/goods/filter/filter.wxml-->
+<view class='body'>
+  <view class='fllter-search-box'>
+    <view class='search-content'>
+      <label>区间/元</label>
+      <view class='search-box'>
+        <input type='number' class='' placeholder='最低价' value='{{minprice}}' bindinput='Loadminprice' />
+        <text>—</text>
+        <input type='number' class='' placeholder='最高价' value='{{maxprice}}' bindinput='Loadmaxprice' />
+      </view>
+    </view>
+  </view>
+  <view class='filter-enter'>
+    <view class='btn-reset' bindtap='Reset'>重置</view>
+    <view class='btn-enter' bindtap='Determine'>确定</view>
+  </view>
+</view>

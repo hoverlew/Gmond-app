@@ -1,0 +1,81 @@
+<!--pages/pay/pay.wxml-->
+<view class="body">
+  <view class="blank20"></view>
+  <!--收货地址-->
+  <view class="flex-row tr-top-bottom" bindtap="OnAddress">
+    <image src='/images/address_b.png'></image>
+    <!--判断收货地址是否为空-->
+    <view class="contect-way">
+      <view class="name">姓名：{{userName}} {{userPhone}}</view>
+      <view class="txt">收货地址：{{userAddress}}</view>
+    </view>
+    <view class="navigator-arrow"></view>
+  </view>
+  <view class="blank20"></view>
+  <block wx:if='{{buynow==false}}'>
+    <block wx:for='{{cartlist}}' wx:key='*this'>
+      <!--判断是否有选中-->
+      <block wx:if='{{item.is_select==1}}' wx:key='*this'>
+        <view class="flex-column product-panel">
+          <view class="flex-row product">
+            <view class='img-box'>
+              <!--测试
+              <image src="http://192.168.88.70:81/{{item.goods_thumb}}" class="product-img" data-goods_id='{{item.goods_id}}' bindtap='imgload'></image>
+                -->
+              <image mode='aspectFill' wx:if='{{item.goods_thumb.length!=0}}' src="http://gmond.com/{{item.goods_thumb}}" class="product-img" data-goods_id='{{item.goods_id}}' bindtap='imgload'></image>
+              <image mode='aspectFill' wx:else src="/images/no_picture.gif" class="product-img" data-goods_id='{{item.goods_id}}' bindtap='imgload'></image>
+
+            </view>
+            <view class="flex-column product-info">
+              <view class="product-txt" data-goods_id='{{item.goods_id}}' bindtap='nameload'>{{item.goods_name}}</view>
+            </view>
+            <view class="flex-column product-money">
+              <view>￥{{item.goods_price}}</view>
+              <view>x{{item.goods_number}}</view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </block>
+  </block>
+  <block wx:else>
+    <!--判断是否有选中-->
+    <block wx:if='{{cartlist.is_select==1}}' wx:key='*this'>
+      <view class="flex-column product-panel">
+        <view class="flex-row product">
+          <view class='img-box'>
+            <!--测试
+              <image src="http://192.168.88.70:81/{{item.goods_thumb}}" class="product-img" data-goods_id='{{item.goods_id}}' bindtap='imgload'></image>
+                -->
+            <image mode='aspectFill' wx:if='{{cartlist.goods_thumb.length!=0}}' src="http://gmond.com/{{cartlist.goods_thumb}}" class="product-img" data-goods_id='{{item.goods_id}}' bindtap='imgload'></image>
+            <image mode='aspectFill' wx:else src="/images/no_picture.gif" class="product-img" data-goods_id='{{item.goods_id}}' bindtap='imgload'></image>
+          </view>
+          <view class="flex-column product-info">
+            <view class="product-txt" data-goods_id='{{cartlist.goods_id}}' bindtap='nameload'>{{cartlist.goods_name}}</view>
+          </view>
+          <view class="flex-column product-money">
+            <view>￥{{cartlist.goods_price}}</view>
+            <view>x{{cartlist.goods_number}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </block>
+  <view class="blank40"></view>
+  <view class="flex-row tr-top" bindtap="OnFav">
+    <view class="txt">优惠券</view>
+    <view class="txt2">{{coupon_name}}</view>
+    <view class="navigator-arrow"></view>
+  </view>
+  <view class="blank20"></view>
+  <view class="flex-row tr-top-bottom">
+    <input value="" placeholder="选填：买家留言（50字以内）" class="inputtxt" bindinput="OnRemark" />
+  </view>
+
+</view>
+<view class="flex-row bottom">
+  <view class="flex-row btm-total">合计：
+    <text class="btm-total-txt">￥{{pay_summoney}}</text>
+  </view>
+  <view class="flex-row btm-pay" bindtap="OnPay">立即支付</view>
+</view>

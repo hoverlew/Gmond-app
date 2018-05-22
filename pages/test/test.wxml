@@ -1,0 +1,136 @@
+<!--index.wxml-->
+<view class="body">
+  <view class="header">
+    <swiper class="swiperimg" indicator-dots="{{columndata.count>8?false:true}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{swiperData}}" wx:key="*this">
+        <!--判断-->
+        <swiper-item wx:if="{{item.position_id==12}}">
+          <navigator bindtap='swiperload' data-id='{{item.ad_id}}' open-type="navigate" hover-class="other-navigator-hover">
+            <image src="http://{{item.ad_code}}" class="swiperimg" bindtap='onPostTap' data-post-id='item.ad_id'></image>
+          </navigator>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!--分类开始-->
+  <view class='cls-container'>
+    <view class='cls-one' bindtap='toStoresmap'>
+      <image mode='widthFix' class='cls-img' src='/images/daohang1.png'></image>
+      <text class='cls-txt'>会员门店</text>
+    </view>
+    <view class='cls-one' bindtap='toValidate'>
+      <image mode='widthFix' class='cls-img' src='/images/daohang1.png'></image>
+      <text class='cls-txt1'>正品查询</text>
+    </view>
+    <view class='cls-one' bindtap='toQuery'>
+      <image mode='widthFix' class='cls-img' src='/images/daohang1.png'></image>
+      <text class='cls-txt2'>查金价</text>
+    </view>
+    <view class='cls-one' bindtap='toCoupon'>
+      <image mode='widthFix' class='cls-img' src='/images/daohang1.png'></image>
+      <text class='cls-txt3'>领优惠券</text>
+    </view>
+    <view class='cls-one' bindtap='toVip'>
+      <image mode='widthFix' class='cls-img' src='/images/daohang1.png'></image>
+      <text class='cls-txt4'>积分查询</text>
+    </view>
+  </view>
+  <!--优惠卷-->
+  <view class="coupon-content">
+    <image mode='widthFix' bindtap='CouponJump' src='/images/coupon3.jpg'></image>
+  </view>
+  <!--商品类型分类-->
+  <view class='cls-containers'>
+    <block wx:for='{{navlist}}'>
+      <block wx:if='{{item.type=="bottom"}}'>
+        <view class='cls-two' bindtap='toStoresmap'>
+          <image class='cls-img' src='http://{{item.pic}}'></image>
+          <text class='cls-text'>{{item.name}}</text>
+          <text class='cls-texts'>{{item.name=="戒指"?'RING':'' || item.name=="项链"?'NECKLACE':'' || item.name=="吊坠"?'PENDANT':'' || item.name=="手链"?'BRACELET':'' || item.name=="手镯"?'TRANSFER BEAD':'' || item.name=="耳饰"?'EARRINGS':'' || item.name=="转运珠"?'TRANSFER BEAD':''}}</text>
+        </view>
+      </block>
+    </block>
+    <view class='cls-all' bindtap='allgoods'>
+      <text class='cls-txt-all'>所有商品</text>
+      <text class='cls-texts-all'>ALL</text>
+    </view>
+  </view>
+  <!--钻石分区-->
+  <view>
+    <block wx:for='{{swiperData}}'>
+      <block wx:if='{{item.ad_name=="钻石分区"}}'>
+        <view class='ring'>
+          <image mode='widthFix' src='http://{{item.ad_code}}' bindtap='AreaTwoJump'></image>
+          <swiper>
+            <swiper-item>
+              <block wx:for='{{listData}}'>
+                <view class='ring-nav' wx:if='{{item.goods_type==9}}'>
+                  <image class='ring-img' src='http://192.168.88.70:81/{{item.goods_img}}'></image>
+                  <text>{{item.goods_name}}</text>
+                </view>
+              </block>
+            </swiper-item>
+          </swiper>
+        </view>
+      </block>
+      <block wx:if='{{item.ad_name=="黄金分区"}}'>
+        <view class='ring'>
+          <image mode='widthFix' src='http://{{item.ad_code}}' bindtap='AreaThreeJump'></image>
+          <swiper>
+            <swiper-item>
+              <block wx:for='{{listData}}'>
+                <view class='ring-nav' wx:if='{{item.goods_type==11}}'>
+                  <image class='ring-img' src='http://192.168.88.70:81/{{item.goods_img}}'></image>
+                  <text>{{item.goods_name}}</text>
+                </view>
+              </block>
+            </swiper-item>
+          </swiper>
+        </view>
+      </block>
+      <block wx:if='{{item.ad_name=="K金分区"}}'>
+        <view class='ring'>
+          <image mode='widthFix' src='http://{{item.ad_code}}' bindtap='AreaFourJump'></image>
+          <swiper>
+            <swiper-item>
+              <block wx:for='{{listData}}'>
+                <view class='ring-nav' wx:if='{{item.goods_type==12}}'>
+                  <image class='ring-img' src='http://192.168.88.70:81/{{item.goods_img}}'></image>
+                  <text>{{item.goods_name}}</text>
+                </view>
+              </block>
+            </swiper-item>
+          </swiper>
+        </view>
+      </block>
+      <block wx:if='{{item.ad_name=="铂金分区"}}'>
+        <view class='ring'>
+          <image mode='widthFix' src='http://{{item.ad_code}}' bindtap='AreaFiveJump'></image>
+          <swiper>
+            <swiper-item>
+              <block wx:for='{{listData}}'>
+                <view class='ring-nav' wx:if='{{item.goods_type==13}}'>
+                  <image class='ring-img' src='http://192.168.88.70:81/{{item.goods_img}}'></image>
+                  <text>{{item.goods_name}}</text>
+                </view>
+              </block>
+            </swiper-item>
+          </swiper>
+        </view>
+      </block>
+    </block>
+  </view>
+  <!--商品分类-->
+  <view class='part-content part-content-a'>
+    <image bindtap='AreaOneJump' src='/images/part_02.png'></image>
+    <image bindtap='AreaTwoJump' src='/images/part_04.png'></image>
+  </view>
+  <view class='part-content part-content-b'>
+    <image bindtap='AreaThreeJump' src='/images/part_08.png'></image>
+    <image bindtap='AreaFourJump' src='/images/part_10.png'></image>
+  </view>
+  <view class='part-content part-content-c'>
+    <image bindtap='AreaFiveJump' src='/images/part_14.png'></image>
+    <image bindtap='toAbout' src='/images/part_16.png'></image>
+  </view>
+</view>

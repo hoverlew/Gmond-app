@@ -1,0 +1,79 @@
+/* pages/goods/validate/valResult/valResult.wxss */
+page{
+  background-color:#fbf3f3;
+}
+.body{
+  width:100%;
+  height:100%;
+  font-size:30rpx;
+  color:#333333;
+}
+.body>view{
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.ths-header{
+  width:92%;
+  height:120rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding:50rpx 0;
+}
+.ths-header image{
+  width:64rpx;
+  height:64rpx;
+}
+
+.ths-header text{
+  text-align: center;
+  padding:20rpx 0;
+}
+.goods-content{
+  width:92%;
+  height:auto;
+  margin:0rpx 0 50rpx 0;
+  border:1rpx solid #dddddd;
+  background-color:#ffffff;
+}
+.goods-content:first-child{
+  border-top:none;
+}
+.goods-content:last-child{
+  margin:0rpx 0 100rpx 0;
+}
+.content-table .table-th{
+  height:60rpx;
+  line-height:60rpx;
+  text-align: center;
+  border-bottom: 1rpx solid #dddddd;
+  font-weight: bold;
+}
+.content-table .table-tr{
+  height:60rpx;
+  line-height:40rpx;
+  text-align: center;
+  border-bottom: 1rpx solid #dddddd;
+  display: flex;
+  flex-direction: row;
+}
+.table-tr text:first-child{
+  width:55%;
+  text-align:center;
+  display: block;
+  height:60rpx;
+  line-height: 60rpx;
+}
+.table-tr text:last-child{
+  text-align:left;
+  padding-left:50rpx;
+  height:60rpx;
+  color:#f6827a;
+  line-height: 60rpx;
+}
+.content-table .table-tr:last-child{
+  border-bottom: none;
+}

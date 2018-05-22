@@ -1,0 +1,248 @@
+/* pages/user/orderdetail/orderdetail.wxss */
+
+page {
+  background-color: #f0f0f0;
+}
+
+.flex-row {
+  display: flex;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.body {
+  width: 750rpx;
+  height: 100%;
+  background-color: #fff;
+  font-size: 28rpx;
+}
+
+.line_solid {
+  border-top: 1rpx solid #ddd;
+  width: 730rpx;
+  height: 0;
+  margin: 0rpx 0rpx 0rpx 20rpx;
+}
+
+.blank20 {
+  width: 750rpx;
+  height: 20rpx;
+  background-color: #f0f0f0;
+}
+
+.blank40 {
+  width: 750rpx;
+  height: 40rpx;
+  background-color: #f0f0f0;
+}
+
+.tr-top-bottom {
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28rpx;
+  line-height: 60rpx;
+  height: 120rpx;
+  padding: 20rpx 20rpx;
+  background-color: #fff;
+  border-top: 1rpx solid #ddd;
+  border-bottom: 1rpx solid #ddd;
+}
+
+.tr-top {
+  justify-content: space-between;
+  font-size: 28rpx;
+  color: #666;
+  line-height: 60rpx;
+  padding: 20rpx 20rpx;
+  background-color: #fff;
+  border-top: 1rpx solid #ddd;
+  border-bottom: 1rpx solid #ddd;
+}
+
+.tr-top text {
+  padding-left: 50rpx;
+}
+
+.tr-bottom {
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28rpx;
+  line-height: 60rpx;
+  height: 60rpx;
+  padding: 20rpx 20rpx;
+  background-color: #fff;
+  border-bottom: 1rpx solid #ddd;
+}
+
+.product-panel {
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 750rpx;
+  border-top: 1rpx solid #ddd;
+  border-bottom: 1rpx solid #ddd;
+  margin-top: -1rpx;
+}
+
+.img-box {
+  width: 160rpx;
+  height: 140rpx;
+  border: 1rpx solid #ddd;
+  text-align: center;
+  margin: 20rpx 20rpx;
+}
+
+.img-box image {
+  width: 100%;
+  height: 100%;
+}
+
+.product {
+  justify-content: flex-start;
+  width: 710rpx;
+  margin: 20rpx 20rpx;
+  font-size: 28rpx;
+}
+
+.product-info {
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 480rpx;
+  margin: 20rpx 20rpx;
+  font-size: 26rpx;
+}
+
+.product-txt {
+  font-size: 26rpx;
+}
+
+.product-money {
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100rpx;
+  height: 100rpx;
+  margin: 20rpx 0 20rpx 10rpx;
+  font-size: 28rpx;
+  color: #f6827a;
+  font-weight: bold;
+}
+
+.tr-top-bottom image {
+  width: 64rpx;
+  height: 64rpx;
+}
+
+.img {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.txt {
+  font-size: 28rpx;
+}
+
+.contect-way {
+  width: 480rpx;
+  word-break: break-all;
+  color: #999;
+  margin-left: -80rpx;
+}
+
+.contect-way .name, .contect-way .txt {
+  line-height: 40rpx;
+}
+
+.inputtxt {
+  width: 750rpx;
+  font-size: 28rpx;
+}
+
+.txtbtn {
+  font-size: 28rpx;
+  margin-left: 20rpx;
+  width: 650rpx;
+  text-align: left;
+  padding-left: 0rpx;
+  color: #000;
+}
+
+.panel-address {
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28rpx;
+  height: 100rpx;
+  padding: 0 20rpx 0 20rpx;
+  background-color: #fff;
+  border-top: 1rpx solid #ddd;
+  border-bottom: 1rpx solid #ddd;
+}
+
+.left-address {
+  justify-content: flex-start;
+  align-items: center;
+  width: 700rpx;
+  font-size: 28rpx;
+}
+
+.left-address-img {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.left-address-txt {
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 660rpx;
+  height: 70rpx;
+  padding: 15rpx 0 15rpx 10rpx;
+}
+
+.left-address-txt-nametel {
+  font-size: 28rpx;
+  font-weight: bold;
+  overflow: hidden;
+}
+
+.left-address-txt-detail {
+  font-size: 26rpx;
+  color: #999;
+  overflow: hidden;
+}
+
+.bottom {
+  position: fixed;
+  justify-content: flex-start;
+  align-items: center;
+  bottom: 0;
+  width: 750rpx;
+  height: 100rpx;
+  background-color: #fff;
+  font-size: 30rpx;
+  z-index: 999;
+}
+
+.btm-total {
+  justify-content: flex-start;
+  align-items: center;
+  width: 430rpx;
+  height: 100rpx;
+  padding-left: 20rpx;
+}
+
+.btm-total-txt {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #f6827a;
+}
+
+.btm-pay {
+  justify-content: center;
+  align-items: center;
+  width: 300rpx;
+  height: 100rpx;
+  font-size: 30rpx;
+  color: #fff;
+  background-color: #f30;
+}

@@ -1,0 +1,30 @@
+<view class='map-search'>
+  <view class='search-city'>
+    <text>退款类型：</text>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <view class="picker">
+        {{array[arrayindex]}}
+      </view>
+    </picker>
+  </view>
+  <view class=' search-city '>
+    <text>退款金额：</text>
+    <input type='digit ' bindinput='refundamount'></input>
+    <text class='totalfee'>最多{{totalfee}}元</text>
+  </view>
+  <view class='search-city '>
+    <text>退货运单号：</text>
+    <input type='defult ' bindinput='refundinvoiceno'></input>
+  </view>
+  <view class='search-city '>
+    <text>退货快递公司：</text>
+    <input type='defult ' bindinput='refundexpress'></input>
+  </view>
+  <view class='search-city '>
+    <text>退货说明：</text>
+    <textarea bindinput='refundexplain'></textarea>
+  </view>
+  <view class='search-citys'>
+    <button bindtap='loadrefund'>申请</button>
+  </view>
+</view>

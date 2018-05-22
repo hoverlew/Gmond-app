@@ -1,0 +1,37 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+.li-btn button,
+.btm-menu button,
+.search-city button{
+position:unset;
+display:unset;
+margin-left:auto;
+margin-right:auto;
+padding-left:unset;
+padding-right:unset;
+box-sizing:unset;
+font-size:unset;
+text-align:unset;
+text-decoration:none;
+line-height:unset;
+border-radius:unset;
+-webkit-tap-highlight-color:unset;
+overflow:hidden;
+color:unset;
+background-color:unset;
+}
+.li-btn button::after,
+.btm-menu button::after,
+.search-city button::after{
+border: none;
+background-color:unset;
+width:0;
+}

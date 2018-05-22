@@ -1,0 +1,53 @@
+<!--二级分类页面-->
+<template name="partlist">
+  <view class='part-container'>
+    <block wx:for="{{partData1}}" wx:key="*this" wx:if="{{item.parent_id==1149 && item.is_show==1}}">
+      <view class='' id='{{item.cat_id}}' bindtap='OnCatePro'>
+        <!--测试
+        <image wx:if='{{item.cat_ico.length!=0}}' src='http://192.168.88.70:81/mobile/data/cat_ico/{{item.cat_ico}}'></image>
+        <image wx:else src='/images/no_picture.gif'></image>
+          -->
+        <image wx:if='{{item.cat_ico.length!=0}}' mode="widthFix" src='http://gmond.com/mobile/data/cat_ico/{{item.cat_ico}}'></image>
+        <image wx:else src='/images/no_picture.gif'></image>
+
+        <label>{{item.cat_name}}</label>
+      </view>
+    </block>
+    <block wx:for="{{partData2}}" wx:key="*this" wx:if="{{item.parent_id==1150 && item.is_show==1}}">
+      <view class='' id='{{item.cat_id}}' bindtap='OnCatePro'>
+        <!--测试
+        <image wx:if='{{item.cat_ico.length!=0}}' src='http://192.168.88.70:81/mobile/data/cat_ico/{{item.cat_ico}}'></image>
+        <image wx:else src='/images/no_picture.gif'></image>
+          -->
+        <image wx:if='{{item.cat_ico.length!=0}}' mode="widthFix" src='http://gmond.com/mobile/data/cat_ico/{{item.cat_ico}}'></image>
+        <image wx:else src='/images/no_picture.gif'></image>
+
+        <label>{{item.cat_name}}</label>
+      </view>
+    </block>
+    <block wx:for="{{partData3}}" wx:key="*this" wx:if="{{item.parent_id==1151 && item.is_show==1}}">
+      <view class='' id='{{item.cat_id}}' bindtap='OnCatePro'>
+        <!--测试
+        <image wx:if='{{item.cat_ico.length!=0}}' src='http://192.168.88.70:81/mobile/data/cat_ico/{{item.cat_ico}}'></image>
+        <image wx:else src='/images/no_picture.gif'></image>
+          -->
+        <image wx:if='{{item.cat_ico.length!=0}}' mode="widthFix" src='http://gmond.com/mobile/data/cat_ico/{{item.cat_ico}}'></image>
+        <image wx:else src='/images/no_picture.gif'></image>
+
+        <label>{{item.cat_name}}</label>
+      </view>
+    </block>
+    <block wx:for="{{partData4}}" wx:key="*this" wx:if="{{item.parent_id==1152 && item.is_show==1}}">
+      <view class='' id='{{item.cat_id}}' bindtap='OnCatePro'>
+        <!--测试
+        <image wx:if='{{item.cat_ico.length!=0}}' src='http://192.168.88.70:81/mobile/data/cat_ico/{{item.cat_ico}}'></image>
+        <image wx:else src='/images/no_picture.gif'></image>
+          -->
+        <image wx:if='{{item.cat_ico.length!=0}}' mode="widthFix" src='http://gmond.com/mobile/data/cat_ico/{{item.cat_ico}}'></image>
+        <image wx:else src='/images/no_picture.gif'></image>
+
+        <label>{{item.cat_name}}</label>
+      </view>
+    </block>
+  </view>
+</template>

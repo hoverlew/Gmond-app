@@ -1,0 +1,245 @@
+<!--index.wxml-->
+<view class="body">
+  <view class="header">
+    <swiper style='height:{{Height}}' class="swiperimg" indicator-dots="{{columndata.count>8?false:true}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{swiperData}}" wx:key="*this">
+        <!--判断-->
+        <swiper-item wx:if="{{item.position_id==12}}">
+          <navigator bindtap='swiperload' data-ad_name='{{item.ad_name}}' data-id='{{item.ad_id}}' open-type="navigate" hover-class="other-navigator-hover">
+            <image style='' bindload='adaptionImg' mode='widthFix' src="http://{{item.ad_code}}" class="swiperimg" data-post-id='item.ad_id'></image>
+          </navigator>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class='clearfix'></view>
+  <!--分类开始-->
+  <view class='cls-container'>
+    <view class='cls-one' bindtap='toStoresmap'>
+      <image class='cls-img' src='/images/nav/nav_01.jpg'></image>
+      <text class='cls-txt'>会员门店</text>
+    </view>
+    <view class='cls-one marleft' bindtap='toValidate'>
+      <image class='cls-img' src='/images/nav/nav_02.jpg'></image>
+      <text class='cls-txt1'>正品查询</text>
+    </view>
+    <view class='cls-one' bindtap='toQuery'>
+      <image class='cls-img' src='/images/nav/nav_03.jpg'></image>
+      <text class='cls-txt2'>查金价</text>
+    </view>
+    <view class='cls-one' bindtap='toCoupon'>
+      <image class='cls-img' src='/images/nav/nav_04.jpg'></image>
+      <text class='cls-txt3'>领优惠券</text>
+    </view>
+    <view class='cls-one' bindtap='toVip'>
+      <image class='cls-img' src='/images/nav/nav_05.jpg'></image>
+      <text class='cls-txt4'>积分查询</text>
+    </view>
+  </view>
+  <!--优惠卷-->
+  <view class="coupon-content">
+    <image wx:if='{{couponimg.length!=0}}' bindtap='CouponJump' src='{{couponimg}}'></image>
+    <image wx:else bindtap='CouponJump' src='/images/coupon.jpg'></image>
+  </view>
+  <!--商品类型分类-->
+  <view class='cls-containers'>
+    <block wx:for='{{navlist}}'>
+      <block wx:if='{{item.type=="bottom" && item.name=="戒"}}'>
+        <view class='cls-two' data-name='{{item.name}}' data-cid='{{item.cid}}' bindtap='tonavlist'>
+          <image class='cls-img' src='http://{{item.pic}}'></image>
+        </view>
+      </block>
+    </block>
+    <block wx:for='{{navlist}}'>
+      <block wx:if='{{item.type=="bottom" && item.name=="项链"}}'>
+        <view class='cls-two' data-name='{{item.name}}' data-cid='{{item.cid}}' bindtap='tonavlist'>
+          <image class='cls-img' src='http://{{item.pic}}'></image>
+        </view>
+      </block>
+    </block>
+    <block wx:for='{{navlist}}'>
+      <block wx:if='{{item.type=="bottom" && item.name=="吊坠"}}'>
+        <view class='cls-two' data-name='{{item.name}}' data-cid='{{item.cid}}' bindtap='tonavlist'>
+          <image class='cls-img' src='http://{{item.pic}}'></image>
+        </view>
+      </block>
+    </block>
+    <block wx:for='{{navlist}}'>
+      <block wx:if='{{item.type=="bottom" && item.name=="手链"}}'>
+        <view class='cls-two' data-name='{{item.name}}' data-cid='{{item.cid}}' bindtap='tonavlist'>
+          <image class='cls-img' src='http://{{item.pic}}'></image>
+        </view>
+      </block>
+    </block>
+    <block wx:for='{{navlist}}'>
+      <block wx:if='{{item.type=="bottom" && item.name=="手镯"}}'>
+        <view class='cls-two' data-name='{{item.name}}' data-cid='{{item.cid}}' bindtap='tonavlist'>
+          <image class='cls-img' src='http://{{item.pic}}'></image>
+        </view>
+      </block>
+    </block>
+    <block wx:for='{{navlist}}'>
+      <block wx:if='{{item.type=="bottom" && item.name=="耳饰"}}'>
+        <view class='cls-two' data-name='{{item.name}}' data-cid='{{item.cid}}' bindtap='tonavlist'>
+          <image class='cls-img' src='http://{{item.pic}}'></image>
+        </view>
+      </block>
+    </block>
+    <block wx:for='{{navlist}}'>
+      <block wx:if='{{item.type=="bottom" && item.name=="转运珠"}}'>
+        <view class='cls-two' data-name='{{item.name}}' data-cid='{{item.cid}}' bindtap='tonavlist'>
+          <image class='cls-img' src='http://{{item.pic}}'></image>
+        </view>
+      </block>
+    </block>
+    <block wx:for='{{navlist}}'>
+      <block wx:if='{{item.type=="bottom" && item.name=="所有商品"}}'>
+        <view class='cls-two' data-cid='{{item.cid}}' bindtap='tonavlist'>
+          <image mode='widthFix' class='cls-img' src='http://{{item.pic}}'></image>
+        </view>
+      </block>
+    </block>
+  </view>
+  <!--钻石分区-->
+  <view>
+    <block wx:for='{{swiperData}}'>
+      <block wx:if='{{item.ad_name=="钻石分区"}}'>
+        <view class='ring'>
+          <image mode='widthFix' src='http://{{item.ad_code}}' bindtap='AreaTwoJump'></image>
+
+          <swiper indicator-dots='{{indicatorDots}}' current="{{Diamondscurrent}}" circular='{{circular}}' autoplay='{{autoplay}}' interval='{{interval}}' duration='{{duration}}'>
+            <block wx:for='{{DiamondsData}}' wx:for-item='Data'>
+              <swiper-item class='swiper-items' bindtap='ssssss'>
+                <view class='item-goods' wx:for='{{Data}}' data-id='{{item.goods_id}}' bindtap='goodsdetail'>
+                  <image wx:if='{{item.goods_thumb.length==0}}' mode='widthFix' src='{{imgUrl}}'></image>
+                  <image wx:else mode='widthFix' src='http://gmond.com/{{item.goods_thumb}}'></image>
+                  <text class='goods-name'>{{item.goods_name}}</text>
+                  <text class='goods-price'>￥{{item.shop_price}}</text>
+                </view>
+              </swiper-item>
+            </block>
+          </swiper>
+          <view class='swiper-btn'>
+            <view class='prev arrow' bindtap='DiamondsprevImg'>
+              <image src='/images/nav/perv.png' />
+            </view>
+            <view class='next arrow' bindtap='DiamondsnextImg'>
+              <image src='/images/nav/next.png' />
+            </view>
+          </view>
+        </view>
+      </block>
+    </block>
+    <block wx:for='{{swiperData}}'>
+      <block wx:if='{{item.ad_name=="黄金分区"}}'>
+        <view class='ring'>
+          <image mode='widthFix' src='http://{{item.ad_code}}' bindtap='AreaThreeJump'></image>
+          <swiper indicator-dots='{{indicatorDots}}' current="{{goldcurrent}}" circular='{{circular}}' autoplay='{{autoplay}}' interval='{{interval}}' duration='{{duration}}'>
+            <block wx:for='{{goldData}}' wx:for-item='Data'>
+              <swiper-item class='swiper-items'>
+                <view class='item-goods' wx:for='{{Data}}' data-id='{{item.goods_id}}' bindtap='goodsdetail'>
+                  <image wx:if='{{item.goods_thumb.length==0}}' mode='widthFix' src='{{imgUrl}}'></image>
+                  <image wx:else mode='widthFix' src='http://gmond.com/{{item.goods_thumb}}'></image>
+                  <text class='goods-name'>{{item.goods_name}}</text>
+                  <text class='goods-price'>￥{{item.shop_price}}</text>
+                </view>
+              </swiper-item>
+            </block>
+          </swiper>
+          <view class='swiper-btn'>
+            <view class='prev arrow' bindtap='goldprevImg'>
+              <image src='/images/nav/perv.png' />
+            </view>
+            <view class='next arrow' bindtap='goldnextImg'>
+              <image src='/images/nav/next.png' />
+            </view>
+          </view>
+        </view>
+      </block>
+    </block>
+    <block wx:for='{{swiperData}}'>
+      <block wx:if='{{item.ad_name=="K金分区"}}'>
+        <view class='ring'>
+          <image mode='widthFix' src='http://{{item.ad_code}}' bindtap='AreaFourJump'></image>
+
+          <swiper indicator-dots='{{indicatorDots}}' current="{{Kgoldcurrent}}" circular='{{circular}}' autoplay='{{autoplay}}' interval='{{interval}}' duration='{{duration}}'>
+            <block wx:for='{{KgoldData}}' wx:for-item='Data'>
+              <swiper-item class='swiper-items'>
+                <view class='item-goods' wx:for='{{Data}}' data-id='{{item.goods_id}}' bindtap='goodsdetail'>
+                  <image wx:if='{{item.goods_thumb.length==0}}' mode='widthFix' src='{{imgUrl}}'></image>
+                  <image wx:else mode='widthFix' src='http://gmond.com/{{item.goods_thumb}}'></image>
+                  <text class='goods-name'>{{item.goods_name}}</text>
+                  <text class='goods-price'>￥{{item.shop_price}}</text>
+                </view>
+              </swiper-item>
+            </block>
+          </swiper>
+          <view class='swiper-btn'>
+            <view class='prev arrow' bindtap='KgoldprevImg'>
+              <image src='/images/nav/perv.png' />
+            </view>
+            <view class='next arrow' bindtap='KgoldnextImg'>
+              <image src='/images/nav/next.png' />
+            </view>
+          </view>
+        </view>
+      </block>
+    </block>
+    <block wx:for='{{swiperData}}'>
+      <block wx:if='{{item.ad_name=="铂金分区"}}'>
+        <view class='ring'>
+          <image mode='widthFix' src='http://{{item.ad_code}}' bindtap='AreaFiveJump'></image>
+
+          <swiper indicator-dots='{{indicatorDots}}' current="{{Platinumcurrent}}" circular='{{circular}}' autoplay='{{autoplay}}' interval='{{interval}}' duration='{{duration}}'>
+            <block wx:for='{{PlatinumData}}' wx:for-item='Data'>
+              <swiper-item class='swiper-items'>
+                <view class='item-goods' wx:for='{{Data}}' data-id='{{item.goods_id}}' bindtap='goodsdetail'>
+                  <image wx:if='{{item.goods_thumb.length==0}}' mode='widthFix' src='{{imgUrl}}'></image>
+                  <image wx:else mode='widthFix' src='http://gmond.com/{{item.goods_thumb}}'></image>
+                  <text class='goods-name'>{{item.goods_name}}</text>
+                  <text class='goods-price'>￥{{item.shop_price}}</text>
+                </view>
+              </swiper-item>
+            </block>
+          </swiper>
+          <view class='swiper-btn'>
+            <view class='prev arrow' bindtap='PlatinumprevImg'>
+              <image src='/images/nav/perv.png' />
+            </view>
+            <view class='next arrow' bindtap='PlatinumnextImg'>
+              <image src='/images/nav/next.png' />
+            </view>
+          </view>
+        </view>
+      </block>
+    </block>
+  </view>
+  <!--商品分类-->
+  <view class='part-content part-content-a'>
+    <image bindtap='AreaOneJump' src='/images/part_02.png'></image>
+    <image bindtap='AreaTwoJump' src='/images/part_04.png'></image>
+  </view>
+  <view class='part-content part-content-b'>
+    <image bindtap='AreaThreeJump' src='/images/part_08.png'></image>
+    <image bindtap='AreaFourJump' src='/images/part_10.png'></image>
+  </view>
+  <view class='part-content part-content-c'>
+    <image bindtap='AreaFiveJump' src='/images/part_14.png'></image>
+    <image bindtap='toAbout' src='/images/part_16.png'></image>
+  </view>
+  <!--底部信息-->
+  <view class="btm-content">
+    <view class="btm-store">
+      <image mode='widthFix' src='/images/storebg.jpg' bindtap='toStoresmap'></image>
+    </view>
+    <view class='btm-tel'>
+      <text bindtap='CallPhone'>400-8866-355</text>
+      <text bindtap='CallPhone'>立即拨打</text>
+    </view>
+    <view class='clearfix'></view>
+    <view class='btm-record'>
+      <text>深圳市吉盟珠宝有限公司</text>
+      <text>备案号:粤ICP备10011914号</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,10 @@
+<template name='searchbox'>
+<view class='swiper-search'>
+    <view class='search'>
+      <view class='df search-arr' bindtap='toSearchResult'>
+        <icon class='searchicon' size='20' type='search'></icon>
+        <input disabled='false' class='' placeholder='请输入关键字' value='{{searchValue}}'/>
+      </view>
+    </view>
+  </view>
+  </template>

@@ -1,0 +1,6 @@
+<template name="myBtn">
+  <view class='li-btn'>
+    <button data-goods_id='{{goods_id}}' bindtap='goodsLoad'>加入购物车</button>
+    <button data-goods_id='{{goods_id}}' data-rec_id='{{rec_id}}' bindtap='goodsDelete'>删除</button>
+  </view>
+</template>

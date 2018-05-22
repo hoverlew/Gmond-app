@@ -1,0 +1,29 @@
+/* pages/user/favorite/favorite.wxss */
+@import "btn/btn.wxss";
+.li-con{
+  width:92%;
+  height:200rpx;
+  font-size:28rpx;
+  border-bottom: 1rpx solid #ccc;
+  margin:0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.li-img{
+  width:15%;
+  border:1rpx solid #ccc;
+}
+.li-img image{
+  width:100rpx;
+}
+.li-txt{
+  width:60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:flex-start;
+}
+.li-txt text{
+  padding:10rpx 50rpx;
+}

@@ -1,0 +1,83 @@
+<!--pages/goods/validate/valResult/valResult.wxml-->
+<view class='body'>
+  <view wx:if='{{res}}'>
+    <view class='ths-header'>
+      <image src='/../../images/icon-heart.png'></image>
+      <text>感谢你购买吉盟珠宝商品</text>
+    </view>
+    <view class='goods-content' wx:for='{{goodsData}}' wx:key='*this'>
+      <view class='content-table' wx:if="{{item.CHARG==barcodeid}}">
+        <view class='table-th'>
+          <text>货品资料</text>
+        </view>
+        <view class='table-tr'>
+          <text>商品条码</text>
+          <text>{{item.CHARG}}</text>
+        </view>
+        <view class='table-tr'>
+          <text>商品品名</text>
+          <text>{{item.ZPINM}}</text>
+        </view>
+        <view class='table-tr'>
+          <text>宝石</text>
+          <text>{{item.ZBSHI}}</text>
+        </view>
+        <view class='table-tr'>
+          <text>成色</text>
+          <text>{{item.ZBQCS}}</text>
+        </view>
+        <view class='table-tr'>
+          <text>金重</text>
+          <text>{{item.JMENG}}</text>
+        </view>
+        <view class='table-tr'>
+          <text>手寸</text>
+          <text>{{item.ZSHCUN}}</text>
+        </view>
+        <view class='table-tr'>
+          <text>款号</text>
+          <text>{{item.numData}}</text>
+        </view>
+        <view class='table-tr'>
+          <text>配件重量</text>
+          <text>{{item.PMENG}}</text>
+        </view>
+        <view class='table-tr'>
+          <text>配件数量</text>
+          <text>{{item.PNUMB}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='goods-content' wx:for='{{goodsData}}' wx:key='*this'>
+      <view class='content-table' wx:if="{{item.CHARG==barcodeid}}">
+        <view class='table-th'>
+          <text>石料信息</text>
+        </view>
+        <view class='table-tr'>
+          <text>主石粒数</text>
+          <text>{{item.ZZSNUM}}</text>
+        </view>
+        <view class='table-tr'>
+          <text>主石重量</text>
+          <text>{{item.ZZSBQZL}}</text>
+        </view>
+        <view class='table-tr'>
+          <text>副石粒数</text>
+          <text>{{item.ZFSNUM}}</text>
+        </view>
+        <view class='table-tr'>
+          <text>副石重量</text>
+          <text>{{item.ZFSBQZL}}</text>
+        </view>
+        <view class='table-tr'>
+          <text>证书号</text>
+          <text>{{item.ZZSHU}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:else class='ths-header'>
+    <image src='/../../images/icon-worry.png'></image>
+    <text>很抱歉，没找到相关产品</text>
+  </view>
+</view>

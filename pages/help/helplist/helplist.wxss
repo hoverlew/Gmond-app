@@ -1,0 +1,147 @@
+topage {
+  background-color: #f1f1f1;
+}
+
+.index {
+  font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+  flex: 1;
+  min-height: 100%;
+  font-size: 32rpx;
+}
+
+.help {
+  font-size: 50rpx;
+  text-align: center;
+}
+
+.body {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 52rpx;
+}
+
+.desc {
+  margin-top: 10rpx;
+  color: #888;
+  font-size: 28rpx;
+}
+
+.widgets-item {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  background-color: #fff;
+  overflow: hidden;
+  border-radius: 4rpx;
+  cursor: pointer;
+}
+
+.widgets-info {
+  display: flex;
+  padding: 40rpx;
+  align-items: center;
+  flex-direction: row;
+  letter-spacing: 2rpx;
+}
+
+.widgets-info-show .widgets-info-img {
+  transform: rotate(-90deg);
+}
+
+.widgets-info-name {
+  flex: 1;
+}
+
+.widgets-info-img {
+  width: 32rpx;
+  height: 32rpx;
+  transition: transform 0.4s;
+  transform: rotate(90deg);
+}
+
+.widgets-list {
+  display: none;
+}
+
+.widgets-list .phoneText {
+  float: right;
+  margin-right: 22px;
+  color: #515151;
+}
+
+.widgets-list-show {
+  display: block;
+}
+
+.widget {
+  position: relative;
+  padding-top: 26rpx;
+  padding-bottom: 66rpx;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  color: #666;
+  letter-spacing: 2rpx;
+}
+
+.widget-arrow {
+  position: absolute;
+  top: 28rpx;
+  right: 44rpx;
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.widget-line {
+  content: " ";
+  position: absolute;
+  left: 40rpx;
+  top: 0;
+  right: 0;
+  height: 2rpx;
+  background-color: #f0f0f0;
+}
+
+.widget-line-first {
+  left: 0;
+  right: 0;
+  background-color: #d8d8d8;
+}
+.btm-tel{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom:40rpx;
+}
+.btm-tel text{
+  padding:30rpx;
+  font-size:40rpx;
+}
+.btm-tel text:last-child{
+  font-size:28rpx;
+  color:#ffffff;
+  background:#000000;
+  display:block;
+  padding:6rpx 20rpx;
+  font-weight:inherit;
+}
+.btm-record{
+  width:100%;
+  padding-bottom:120rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height:50rpx;
+  line-height:50rpx;
+}
+.btm-record text{
+  font-size:28rpx;
+}
+.btm-record text:last-child{
+  padding-left:20rpx;
+}

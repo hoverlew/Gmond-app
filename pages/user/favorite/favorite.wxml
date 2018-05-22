@@ -1,0 +1,21 @@
+<!--pages/user/favorite/favorite.wxml-->
+<import src="btn/btn.wxml" />
+<view>
+  <block wx:for='{{favoriteData}}' wx:key='*this' data-post-id='item.postId'>
+    <view class="li-con">
+      <view class="li-img">
+        <!--测试
+        <image wx:if='{{item.goods_img.length!=0}}' mode="widthFix" src='http://192.168.88.70:81/{{item.goods_img}}' data-goods_id='{{item.goods_id}}' bindtap='goodsLoad'></image>
+        <image wx:else mode="widthFix" src='/images/no_picture.gif' data-goods_id='{{item.goods_id}}' bindtap='goodsLoad'></image>
+          -->
+        <image wx:if='{{item.goods_img.length!=0}}' mode="widthFix" src='http://gmond.com/{{item.goods_img}}' data-goods_id='{{item.goods_id}}' bindtap='goodsLoad'></image>
+        <image wx:else mode="widthFix" src='/images/no_picture.gif' data-goods_id='{{item.goods_id}}' bindtap='goodsLoad'></image>
+      </view>
+      <view class='li-txt'>
+        <text class='goodsname' data-goods_id='{{item.goods_id}}' bindtap='goodsLoad'>{{item.goods_name}}</text>
+        <text class='goodsprice' data-goods_id='{{item.goods_id}}' bindtap='goodsLoad'>本店售价：￥{{item.shop_price}}</text>
+      </view>
+      <template is="myBtn" data='{{...item}}'></template>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,60 @@
+<view class="tit">
+  <view class="title_val">购物列表</view>
+</view>
+<scroll-view scroll-y="{{isScroll}}" class='list-all' wx:if="{{cartshow}}">
+  <view wx:for="{{cartlist}}" class="flex-colum body">
+    <view class="flex-row pro-row">
+      <view class="check-box">
+        <icon bindtap='iconTrue' data-is_select="{{item.is_select}}" type="{{item.is_select==0?'circle':'success'}}" color="{{item.is_select==0?'#dddddd':'red'}}" data-current="{{index}}" size="20" />
+      </view>
+      <view class='img-box'>
+        <!--测试
+        <image bindtap='goodsLoad' data-id='{{item.goods_id}}' src="http://192.168.88.70:81/{{item.goods_thumb}}" class="pro-img"></image>
+        -->
+        <image mode='aspectFill' wx:if='{{item.goods_thumb.length!=0}}' bindtap='goodsLoad' data-id='{{item.goods_id}}' src="http://gmond.com/{{item.goods_thumb}}" class="pro-img"></image>
+        <image mode='aspectFill' wx:else bindtap='goodsLoad' data-id='{{item.goods_id}}' src="/images/no_picture.gif" class="pro-img"></image>
+
+      </view>
+      <view class="flex-column pro-title-model">
+        <view>
+          <text class="title-model-overhidden" data-id='{{item.goods_id}}' bindtap='nameload'>{{item.goods_name}}</text>
+        </view>
+        <!--
+        <view class="model-txt">￥{{item.market_price}}</view>
+        -->
+        <view class="model-txt1">￥{{item.goods_amount}}
+          <text>×{{item.goods_number}}</text>
+        </view>
+      </view>
+      <view class="flex-colum pro-right">
+        <!--编辑按钮-->
+        <view class="pro-right-edit">
+          <image src='/images/edit.png' data-number="{{item.goods_number}}" data-id='{{item.rec_id}}' data-goods_id='{{item.goods_id}}' data-goods_attr_id="{{item.goods_attr_id}}" data-goods_price="{{item.goods_price}}" bindtap='toEdit'></image>
+        </view>
+        <!--删除按钮-->
+        <view class='pro-right-delete'>
+          <image data-id="{{item.rec_id}}" src='/images/del.png' bindtap='DeleteGoods'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<view class='none-order' wx:else>
+  <image src='{{noCartImgSrc}}'></image>
+  <text>{{noCartTxt}}</text>
+</view>
+
+<view class="flex-row bottom">
+  <view class="allcheck-box" data-selectall="{{selectall}}" bindtap="OnSelectAll">
+    <icon type="{{selectall==0?'circle':'success'}}" color="{{selectall==0?'#dddddd':'red'}}" size="20" />
+  </view>
+  <view class="allcheck-txt">全选</view>
+  <view class="flex-column allmoney">
+    <view>合计：
+      <text class="allmoney-price">{{total_money}}元</text>
+    </view>
+    <view class="allmoney-post">不含运费</view>
+  </view>
+  <view class="flex-row edit" style="display:none;">编辑</view>
+  <view class="flex-row Settlement" bindtap="OnCash">结算</view>
+</view>

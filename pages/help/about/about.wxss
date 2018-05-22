@@ -1,0 +1,104 @@
+/* pages/about/about.wxss */
+page{
+  width:100%;
+  height:100%;
+  background-color:#fbf3f3;
+}
+.body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.about-banner image{
+  width:750rpx;
+  height:380rpx;
+}
+.flex-column{
+  width:100%;
+  height:auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.col-content{
+  width:92%;
+  height:350rpx;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  border:1rpx solid #dddddd;
+  justify-content: center;
+  align-items: center;
+  margin-top:20rpx;
+  background-color:#ffffff;
+  color:#666666;
+}
+.col-content-swiper{
+  flex-direction: column;
+  justify-content: unset;
+  height:620rpx;
+}
+.col-content-swiper .lf-content{
+  margin-top:20rpx;
+}
+.col-content-swiper .lf-content label{
+  text-align:center;
+}
+.col-content-swiper .post-swiper{
+  height:530rpx;
+  width:690rpx;
+  
+}
+.col-content-swiper .post-swiper image{
+  height:400rpx;
+  width:690rpx;
+}
+.post-swiper text{
+  color:#666666;
+  font-size:22rpx;
+  z-index: 99;
+  display:block;
+  width:690rpx;
+  text-align: center;
+  height:60rpx;
+  line-height:30rpx;
+}
+.lf-content{
+  float: left;
+  width:470rpx;
+  font-size:20rpx;
+  display: flex;
+  flex-direction: column;
+}
+.lf-content label{
+  font-size:32rpx;
+  font-weight: bold;
+  padding:0 20rpx 20rpx 20rpx;
+  color:#333333;
+}
+.lf-content text{
+  padding:0 10rpx 20rpx 20rpx;
+}
+.rt-content{
+  float: right;
+  padding-left:10rpx;
+  display: flex;
+  flex-direction:row;
+justify-content:center;
+align-items:center;
+}
+.rt-content-a{
+  padding-left:0;
+}
+.lf-content-a label{
+  text-align: right;
+  color:#333333;
+}
+.rt-content image{
+  width:250rpx;
+  height:350rpx;
+}
+.blank80{
+  width:100%;
+  height:80rpx;
+}

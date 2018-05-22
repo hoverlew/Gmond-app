@@ -1,0 +1,31 @@
+<!--pages/goods/vip/vipResult/vipResult.wxml-->
+<view class='body' wx:if='{{isLoad}}'>
+  <view wx:if='{{request}}'>
+    <view class='vip-content'>
+      <view class='vip-info'>
+        <text>姓名</text>
+        <text>{{vipname}}</text>
+      </view>
+      <view class='vip-balance'>
+        <text>积分余额</text>
+        <text>{{vipintegral}}</text>
+      </view>
+      <view class='vip-card'>
+        <text>会员级别</text>
+        <text>{{viplevel}}</text>
+      </view>
+    </view>
+    <view class='store-notice'>
+      <text>会员积分及销售查询</text>
+      <text class='notice-b'>购买吉盟珠宝正价商品钻石，K金，翡翠，宝石类：1元可积1分。购买吉盟珠宝正价商品黄金，铂金，钯金：5元可换一分。</text>
+      <text>积分在会员月可兑换会员专属礼品。</text>
+    </view>
+  </view>
+  <view wx:else class='ths-header'>
+    <image src='/../../images/icon-worry.png'></image>
+    <text>很抱歉，没找到相关会员</text>
+  </view>
+</view>
+<view class='body' wx:else>
+
+</view>

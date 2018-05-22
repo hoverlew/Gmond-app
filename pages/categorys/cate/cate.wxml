@@ -1,0 +1,40 @@
+<!--pages/cate/cate.wxml-->
+<!--一级分类母版页-->
+<import src="partlist/partlist.wxml" />
+<import src="search/search.wxml" />
+<scroll-view class='box' scroll-y="{{isScroll}}" style='height:{{winHeight}}px;overflow:{{overflow}};'>
+  <view class="body">
+    <template is='searchbox'></template>
+    <view class="swiper-tab left-content" style="height:{{winHeight}}px;">
+      <block wx:for='{{tabLeftData}}' wx:key='*this'>
+        <view wx:if='{{item.cat_id==1149 || item.cat_id == 1150 || item.cat_id == 1151 || item.cat_id == 1152}}' data-post-id='{{item.cat_id}}' class="swiper-tab-list {{currentTab==index ? 'on' : ''}}" data-current="{{index}}" bindtap="switchNav">{{item.cat_name}}</view>
+      </block>
+    </view>
+    <view class='right-content right-box'>
+      <view class='part-header-box'>
+        <view class='part-header'>
+          <text class='header-tle'>
+            <text>—</text>
+          <text>按款式分类</text>
+          <text>—</text>
+          </text>
+        </view>
+      </view>
+
+      <swiper vertical='true' scroll-y="true" current="{{currentTab}}" class="swiper-box right-content" duration="300" style="height:{{bottomHeight}}px;" bindchange="bindChange">
+        <swiper-item>
+          <template is="partlist" data="{{partData1}}"></template>
+        </swiper-item>
+        <swiper-item>
+          <template is="partlist" data="{{partData2}}"></template>
+        </swiper-item>
+        <swiper-item>
+          <template is="partlist" data="{{partData3}}"></template>
+        </swiper-item>
+        <swiper-item>
+          <template is="partlist" data="{{partData4}}"></template>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+</scroll-view>

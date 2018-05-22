@@ -1,0 +1,73 @@
+<!--pages/user/orderdetail/orderdetail.wxml-->
+<view class="body">
+  <view class="blank20"></view>
+  <block wx:for="{{orderlist}}">
+    <!--收货地址-->
+    <view class="flex-row tr-top-bottom">
+      <image src='/images/address_b.png'></image>
+      <!--判断收货地址是否为空-->
+      <view class="contect-way">
+        <view class="name">姓名：{{item.consignee}} {{item.mobile}}</view>
+        <view class="txt">收货地址：{{item.address}}</view>
+      </view>
+      <view class="navigator-arrow"></view>
+    </view>
+  </block>
+  <view class="blank20"></view>
+
+  <!--订单商品详情-->
+  <block wx:for='{{orderlist}}' wx:key='*this' wx:for-item="order">
+    <block wx:for="{{order.OrderGoodsList}}" wx:for-item="goods">
+      <view class="flex-column product-panel">
+        <view class="flex-row product">
+          <view class='img-box'>
+            <image wx:if='{{goods.goods_img.length!=0}}' src="{{goods.goods_img}}" class="product-img" data-post-id='postId' bindtap='imgload' data-goods_id="{{goods.goods_id}}"></image>
+            <image wx:else src="/images/no_picture.gif" class="product-img" data-post-id='postId' bindtap='imgload' data-goods_id="{{goods.goods_id}}"></image>
+          </view>
+          <view class="flex-column product-info">
+            <view class="product-txt" bindtap='nameload' data-goods_id="{{goods.goods_id}}">{{goods.goods_name}}
+              <view>
+                <text>{{goods.goods_attr}}</text>
+              </view>
+            </view>
+          </view>
+          <view class="flex-column product-money">
+            <view>￥{{goods.goods_price==goods.market_price?goods.goods_price:goods.goods_price}}</view>
+            <view>x{{goods.goods_number}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </block>
+  <block wx:for='{{orderlist}}' wx:key='*this' wx:for-item="order">
+    <view class="blank40"></view>
+    <view class="flex-column tr-top">
+      <view class="txt">订单编号
+        <text>{{order.order_sn}}</text>
+      </view>
+      <view class="txt2">下单时间
+        <text>{{order.add_time}}</text>
+      </view>
+      <block wx:if='{{order.order_status==5}}'>
+        <view class="txt2">配送方式
+          <text>{{order.shipping_name}}</text>
+        </view>
+        <view class="txt2">快递单号
+          <text>{{Number}}</text>
+        </view>
+      </block>
+    </view>
+  </block>
+  <view class="blank20"></view>
+  <view class="flex-row tr-top-bottom">
+    <input value="" disabled='false' placeholder="备注留言" class="inputtxt" value='{{Remarks}}' />
+  </view>
+</view>
+<block wx:for='{{orderlist}}' wx:key='*this' wx:for-item="order">
+  <view class="flex-row bottom">
+    <view class="flex-row btm-total">合计：
+      <text class="btm-total-txt">￥{{order.goods_amount}}</text>
+    </view>
+    <view class="flex-row btm-pay" bindtap="OnPay" hidden='{{order.pay_status==0 && order.order_status!=2?false:true}}'>立即支付</view>
+  </view>
+</block>

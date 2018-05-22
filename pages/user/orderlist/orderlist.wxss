@@ -1,0 +1,409 @@
+page {
+  background-color: #fbf3f3;
+}
+
+.scroll-view_H {
+  white-space: nowrap;
+}
+
+.scroll-view-item_H {
+  display: inline-block;
+  width: 20%;
+  box-sizing: border-box;
+}
+
+.list-liu {
+  width: 100%;
+  height: 85rpx;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  background: #fff;
+  border: 1rpx solid #eee;
+}
+
+.on {
+  color: #c80611;
+}
+
+.list-liu .swiper-tab-list {
+  text-align: center;
+  line-height: 85rpx;
+  font-size: 34rpx;
+}
+
+.kong {
+  width: 100%;
+  height: 85rpx;
+}
+
+.scroll-view-box {
+  height: auto;
+  background-color: #fff;
+}
+
+/*----------------------分割线-------------------  */
+
+/*购物车 全部订单 我的收藏 浏览记录 样式  */
+
+/* 列表 */
+
+.order-num {
+  width: 100%;
+  height: 70rpx;
+  line-height: 70rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.list {
+  width: 100%;
+  background: #fff;
+  margin-top: 20rpx;
+  display: flex;
+  box-sizing: border-box;
+  padding: 10rpx 30rpx 10rpx 30rpx;
+  border-bottom: 1px solid #eee;
+}
+
+.carts-radio {
+  flex: 1;
+  line-height: 180rpx;
+  text-align: center;
+}
+
+/* 选项框 */
+
+.pic {
+  flex: 3;
+  height: 180rpx;
+}
+
+.pic image {
+  width: 100%;
+  height: 100%;
+}
+
+.con {
+  flex: 6;
+  padding-left: 20rpx;
+  padding-bottom: 20rpx;
+  box-sizing: border-box;
+}
+
+view, text, block {
+  font-family: "Microsoft Yahei";
+}
+
+/* 类型描述 */
+
+.type1 {
+  padding-top: 20rpx;
+  padding-left: 30rpx;
+  display: block;
+  font-size: 30rpx;
+  color: #323232;
+  width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.type2 {
+  display: flex;
+  font-size: 28rpx;
+  color: #666;
+  padding-top: 20rpx;
+  box-sizing: border-box;
+}
+
+.copy {
+  font-size: 28rpx;
+  margin-top: 25rpx;
+  box-sizing: border-box;
+  display: block;
+  width: 90rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  color: #fff;
+  background-color: #f6827a;
+  border-radius: 10rpx;
+}
+
+/* 数量 */
+
+.num {
+  width: 140rpx;
+  height: 40rpx;
+  border: 1px solid #eee;
+  margin-top: 15rpx;
+  background: #fff;
+}
+
+.num2 {
+  float: left;
+  width: 56rpx;
+  line-height: 40rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.num1 {
+  float: left;
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  font-size: 36rpx;
+  padding: 0;
+  color: #4a4949;
+  border-right: 1px solid #eee;
+}
+
+.num3 {
+  float: right;
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  font-size: 36rpx;
+  padding: 0;
+  margin: 0;
+  border-radius: 0px;
+  color: #4a4949;
+  border-left: 1px solid #eee;
+}
+
+/* 价格 */
+
+.price {
+  flex: 3;
+  font-size: 30rpx;
+  color: #c90211;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.price1 {
+  position: absolute;
+  right: 0;
+  top: 18rpx;
+}
+
+.number {
+  position: absolute;
+  right: 0;
+  top: 70rpx;
+}
+
+/* 删除 */
+
+.del {
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  right: 0;
+  bottom: 20rpx;
+}
+
+/*----------------------分割线-------------------  */
+
+/**app.wxss**/
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+
+/*----------------------分割线-------------------  */
+
+/*首页商品类样式  */
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content-1 {
+  width: 375rpx;
+  /* height: 420rpx; */
+  padding: 20rpx 10rpx;
+  box-sizing: border-box;
+  border-bottom: 2rpx solid #ccc;
+  border-right: 1rpx solid #ccc;
+}
+
+.content-1 image {
+  width: 374rpx;
+  height: 252rpx;
+  margin-left: -8rpx;
+}
+
+.content-1 .price .text-price {
+  color: #b20000;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.content-1 .price .text-yj {
+  color: #656565;
+  font-size: 24rpx;
+}
+
+.content-1 .price .text-oldprice {
+  text-decoration: line-through;
+  color: #656565;
+  font-size: 24rpx;
+}
+
+.content-1 .name .text-name {
+  font-size: 28rpx;
+  color: #323232;
+}
+
+.content-1 .dress {
+  margin-top: 10rpx;
+}
+
+.content-1 .dress .dress-1 {
+  float: left;
+  color: #989898;
+  font-size: 24rpx;
+}
+
+.content-1 .dress .dress-2 {
+  float: right;
+  color: #989898;
+  font-size: 24rpx;
+  margin-right: 20rpx;
+}
+
+/* 一个 */
+
+.order-btn {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  height: 80rpx;
+  padding-left: 73.5%;
+  border-bottom: 5px solid #eee;
+}
+
+/* 三个 */
+
+.order-btn-xq {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  height: 80rpx;
+  padding-left: 30%;
+  border-bottom: 5px solid #eee;
+}
+
+/* 两个 */
+
+.order-btn-th {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  height: 80rpx;
+  padding-left: 52%;
+  border-bottom: 5px solid #eee;
+}
+
+.order-btn text {
+  display: block;
+  float: right;
+  width: 140rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border: 1rpx solid #ddd;
+  text-align: center;
+  font-size: 28rpx;
+  margin: 20rpx 0 0 20rpx;
+}
+
+.order-btn-th text {
+  display: block;
+  float: right;
+  width: 140rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border: 1rpx solid #ddd;
+  text-align: center;
+  font-size: 28rpx;
+  margin: 20rpx 0 0 20rpx;
+}
+
+.order-btn-fh text {
+  display: block;
+  float: right;
+  width: 140rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border: 1rpx solid #ddd;
+  text-align: center;
+  font-size: 28rpx;
+  margin: 20rpx 0 0 20rpx;
+}
+
+.order-btn-xq text {
+  display: block;
+  float: right;
+  width: 140rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border: 1rpx solid #ddd;
+  text-align: center;
+  font-size: 28rpx;
+  margin: 20rpx 0 0 20rpx;
+}
+
+text.order-check {
+  border: 1rpx solid #f6827a;
+}
+
+.order-btn text:last-child {
+  border: 1rpx solid #f6827a;
+}
+
+.order-btn-th text:last-child {
+  border: 1rpx solid #f6827a;
+}
+
+.order-btn-xq text:last-child {
+  border: 1rpx solid #f6827a;
+}
+
+.order-topay {
+  background-color: #f6827a;
+  color: #fff;
+}
+
+.none-order {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100rpx 0;
+}
+
+.none-order image {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.none-order text {
+  font-size: 32rpx;
+  padding-top: 50rpx;
+}

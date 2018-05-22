@@ -1,0 +1,46 @@
+<!--pages/about/about.wxml-->
+<view class="body">
+  <view class='about-banner'>
+    <image src='/images/about-banner.jpg'></image>
+  </view>
+  <view class="flex-column content">
+    <block wx:for='{{aboutData}}' wx:key='*this'>
+      <view class='col-content'>
+        <view class='lf-content' data-post-id='postId'>
+          <label>{{item.aboutTitle}}</label>
+          <text>{{item.aboutContent}}</text>
+        </view>
+        <view class='rt-content'>
+
+          <image wx:if='{{item.aboutTitle=="持续关注年轻消费者"}}' src='{{item.imgSrc}}'></image>
+          <image wx:else mode='widthFix' src='{{item.imgSrc}}'></image>
+        </view>
+      </view>
+      <view class='col-content'>
+        <view class='rt-content rt-content-a'>
+          <image mode='widthFix' src='{{item.imgSrcA}}'></image>
+        </view>
+        <view class='lf-content lf-content-a'>
+          <label>{{item.aboutTitleA}}</label>
+          <text>{{item.aboutContentA}}</text>
+        </view>
+      </view>
+    </block>
+    <view class='col-content col-content-swiper'>
+      <view class='lf-content'>
+        <label>红毯高级定制</label>
+      </view>
+      <view class='rt-content rt-content-a'>
+        <swiper class='post-swiper' circular='1' autoplay='1' indicator-dots='1'>
+          <block wx:for="{{swiperData}}" wx:key="*this" data-post-id='item.postId'>
+            <swiper-item>
+              <image mode='widthFix' src='{{item.imgSrcB}}'></image>
+              <text>{{item.desTxt}}</text>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+    </view>
+  </view>
+  <view class='blank80'></view>
+</view>

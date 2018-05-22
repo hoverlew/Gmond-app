@@ -1,0 +1,54 @@
+<!--pages/mycenter/mycenter.wxml-->
+<view class="body">
+  <view class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl==null?'/images/headimg.jpg':userInfo.avatarUrl}}"></image>
+    <text class="userinfo-nickname" bindtap="OnClickLogin">{{userInfo.nickName==null?'立即登录':userInfo.nickName}}</text>
+  </view>
+  <view class="blank5"></view>
+  <view class="tr" bindtap="OnOrder" hidden="{{userInfo.nickName==null?true:false}}">
+    <image src="/images/order_o.png" mode="widthFix" class="img"></image>
+    <view class="txt">我的订单</view>
+  </view>
+  <view class="line_solid"></view>
+  <view class="line_solid" hidden="{{true}}"></view>
+  <view class="tr" bindtap="OnFavorite">
+    <image src="/images/icon-heart.png" mode="widthFix" class="img"></image>
+    <view class="txt">我的收藏</view>
+  </view>
+  <view class="line_solid"></view>
+  <view class="line_solid" hidden="{{true}}"></view>
+  <view class="tr" bindtap="OnCart" hidden="{{userInfo.nickName==null?true:false}}">
+    <image src="/images/cart_o.png" mode="widthFix" class="img"></image>
+    <view class="txt">我的购物车</view>
+  </view>
+  <view class="line_solid"></view>
+  <view class="blank5" hidden="{{true}}"></view>
+  <view class="tr" hidden="{{userInfo.nickName==null?true:false}}" bindtap="OnAddress">
+    <image src="/images/address_b.png" mode="widthFix" class="img"></image>
+    <view class="txt">我的地址</view>
+  </view>
+  <view class="line_solid"></view>
+  <view class="tr" hidden="{{true}}" bindtap="OnHistory">
+    <image src="/images/history.png" mode="widthFix" class="img"></image>
+    <view class="txt">我的收藏</view>
+  </view>
+  <view class="blank5"></view>
+  <view class="tr" bindtap="OnHelp">
+    <image src="/images/help_og.png" mode="widthFix" class="img"></image>
+    <view class="txt">帮助中心</view>
+  </view>
+  <view class="line_solid"></view>
+  <view class="tr" bindtap="OnAbout">
+    <image src="/images/about_or.png" mode="widthFix" class="img"></image>
+    <view class="txt">关于我们</view>
+  </view>
+  <view class="blank5"></view>
+  <view class="tr">
+    <image src="/images/kf_b.png" mode="widthFix" class="img"></image>
+    <button plain="{{true}}" open-type="contact" class="txtbtn" style="border:none;color:#000000;">联系客服</button>
+  </view>
+  <view class="blank5"></view>
+  <view class="bottom">
+    <button type="{{btntype}}" size="default" hidden="{{true}}" loading="{{loading}}" plain="{{false}}" bindtap="OnLogin" class="btn"> {{btnname}} </button>
+  </view>
+</view>
